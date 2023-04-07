@@ -1,6 +1,17 @@
-import '@/styles/globals.css'
+import Layout from '@/components/layout'
+import '@/styles/globals.scss'
+import '@/styles/shared.scss'
+import '@/styles/tailwind.scss'
 import type { AppProps } from 'next/app'
+import { ThemeProvider } from 'styled-components'
+import mainTheme from '@/plugins/styledComponents/theme'
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <ThemeProvider theme={mainTheme}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
+  )
 }
