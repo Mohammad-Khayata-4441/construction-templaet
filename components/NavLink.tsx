@@ -7,12 +7,12 @@ interface PropsType extends PropsWithChildren<LinkProps> {
 
 }
 
-export default function NavLink(props: PropsType) {
+export default function NavLink({ activeClass, ...rest }: PropsType) {
     const router = useRouter()
-    const isActive = useMemo(() => router.pathname === props.href, [props.href, router.pathname])
+    const isActive = useMemo(() => router.pathname === rest.href, [rest.href, router.pathname])
     return (
-        <Link  {...props} className={`${isActive ? props.activeClass : ''} ${props.className}`} >
-            {props.children}
+        <Link  {...rest} className={`${isActive ? activeClass : ''} ${rest.className}`} >
+            {rest.children}
         </Link>
     )
 }
