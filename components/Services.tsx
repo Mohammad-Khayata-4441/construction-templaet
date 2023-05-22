@@ -10,7 +10,7 @@ import StreetWork from "../assets/construction/ConcreteRepair.jpg";
 import Planning from "../assets/construction/planning.jpg";
 export default function Services() {
   return (
-    <section className="text-gray-600 body-font relative ">
+    <div className="text-gray-600 body-font relative ">
       <svg
         className="absolute left-0 top-24"
         width="279"
@@ -39,12 +39,12 @@ export default function Services() {
         />
       </svg>
 
-      <div className="container max-w-screen-xl px-5 py-24 mx-auto">
+      <div className="container max-w-screen-xl px-5 mx-auto">
         <div className="flex flex-wrap w-full mb-20">
           <div className="w-full mb-6 lg:mb-0">
-            <h1 className="sm:text-3xl text-2xl font-bold title-font mb-2 text-primary">
+            <h2 className="sm:text-3xl text-2xl font-bold title-font mb-2 text-primary">
               خدماتنا
-            </h1>
+            </h2>
             <p className="text-dark text-2xl font-bold">
               تعرف على خدماتنا المتكاملة من الألف إلى الياء
             </p>
@@ -196,6 +196,6 @@ export default function Services() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

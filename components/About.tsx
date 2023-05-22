@@ -4,7 +4,7 @@ import { TbCoins, TbDiamond } from 'react-icons/tb'
 import { AiFillSafetyCertificate } from 'react-icons/ai'
 import { BsCalendarDate, BsBuildingFillCheck } from 'react-icons/bs'
 import { BiSupport } from 'react-icons/bi'
-import AboutImage from '../assets/construction/about.jpg'
+import AboutImage from '../assets/construction/about-2.jpg'
 import AboutImage2 from '../assets/construction/header-14.jpg'
 import TimeLine from '../assets/svg/timeline.svg'
 import PatternSvg from '../assets/svg/pattern.svg'
@@ -69,7 +69,7 @@ export default function About() {
                 </div>
             </div>
 
-            <div className='mt-24 relative '>
+            <div className='mt-12 relative '>
                 <div className="container px-4 max-w-screen-xl mx-auto mb-4">
 
                     <h4 className='text-xl md:text-2xl font-bold mb-2 text-center md:text-right '>لماذا يجب عليك <span className="text-primary">إختيارنا</span>  نحن ؟</h4>

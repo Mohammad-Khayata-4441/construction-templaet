@@ -111,7 +111,7 @@ export default function Portfolio() {
   return (
     <div className="relative min-w-[250px]">
       <div className="container mx-auto max-w-screen-xl">
-        <h2 className="text-primary text-4xl font-bold">أعمالنا</h2>
+        <h2 className="text-primary text-3xl font-bold">أعمالنا</h2>
         <p className="text-2xl text-dark font-bold">
           نستعرض لكم مجموعة بابرز اعمالنا في المنطقة
         </p>

@@ -45,7 +45,7 @@ export default function AppFooter() {
               </div>
           </div>
           <div className="mb-6 md:mb-0 flex gap-4 brand items-center">
-                  <span className="self-center brand text-2xl font-semibold whitespace-nowrap dark:text-white">Sweet Living</span>
+                  <span className="self-center brand text-2xl font-semibold whitespace-nowrap dark:text-white">JDM Contractors</span>
                     <Logo className='h-16'></Logo>
           </div>
       </div>

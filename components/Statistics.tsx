@@ -1,6 +1,17 @@
-import React from 'react'
+import React  , {useEffect}from 'react'
 import DountSvg from '../assets/svg/dount.svg'
+import { CountUp } from 'countup.js';
 export default function Statistics() {
+    const countUp = ()=>{
+        const counterts = document.querySelectorAll('.counter');
+        // counterts.forEach( (item:HTMLElement) => {
+        //   counter.start();
+        // });
+      }
+
+    useEffect(()=>{}, [])
+
+
     return (
         <div className="relative">
             <div className=" relative bg-white shadow z-10 py-12 bg-opacity-80 backdrop-blur-sm">
@@ -12,15 +23,16 @@ export default function Statistics() {
 
                     <div className="counts flex flex-col lg:flex-row-reverse gap-16 mt-16 lg:mt-0">
                         <div className="count-item text-center">
-                            <h3 className='text-primary font-bold text-4xl'>+150k</h3>
+                            <h3 className='text-primary font-bold text-4xl counter' data-value="15">+15k</h3>
+
                             <h6>شقة سكنية تم انشائها</h6>
                         </div>
                         <div className="count-item text-center">
-                            <h3 className='text-primary font-bold text-4xl'>+800</h3>
+                            <h3 className='text-primary font-bold text-4xl counter' data-value="800">+800</h3>
                             <h6>من العملاء الراضيين</h6>
                         </div>
                         <div className="count-item text-center">
-                            <h3 className='text-primary font-bold text-4xl'>+200</h3>
+                            <h3 className='text-primary font-bold text-4xl counter' data-value="200">+200</h3>
                             <h6>مشروع تم إنجازه</h6>
                         </div>
                     </div>

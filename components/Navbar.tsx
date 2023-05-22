@@ -146,7 +146,7 @@ const Navbar = ()=> {
         <div className="brand flex items-center gap-4">
           <div className="text-2xl xtext-white">
             {scrolledDown ? 
-            <h6 className="text-dark brand">{'Sweet Living'}</h6> :  <h6 className="text-white brand ">{'Sweet Living'}</h6> }
+            <h6 className="text-dark brand">{'JDM Contractors'}</h6> :  <h6 className="text-white brand ">{'JDM Contractors'}</h6> }
           </div>
           <Logo className={`h-12 ${scrolledDown?'text-dark':'text-white'}`}  />
         </div>
