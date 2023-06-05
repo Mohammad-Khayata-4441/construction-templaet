@@ -11,7 +11,6 @@ import Circles from "../assets/svg/circles.svg";
 import anime from "animejs";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
-import aos from "aos";
 gsap.registerPlugin(ScrollTrigger);
 export default function About() {
   const animateTimeLine = () => {
@@ -133,7 +132,6 @@ export default function About() {
     animatePatterns();
     animateImages();
     animateFeatures();
-    aos.init();
   }, []);
 
   return (
@@ -150,7 +148,7 @@ export default function About() {
             />
           </div>
           <div className="content col-span-12  mt-4 md:col-span-6  md:px-4 lg:px-8 ">
-            <div className="about-text" data-aos="fade-right">
+            <div className="about-text"  >
               <h2 className="text-2xl font-bold text-primary text-center md:text-right">
                 حولنا
               </h2>
