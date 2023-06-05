@@ -5,6 +5,7 @@ import About from "@/components/About";
 import Clients from "@/components/Clients";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
+import Contact from "@/components/Contact";
 export default function Home() {
   return (
     <>
@@ -16,27 +17,30 @@ export default function Home() {
         <title>Real Estate</title>
       </Head>
       <main className="flex flex-col">
-        <section>
-
-        <HeroSection />
+        <section id="main">
+          <HeroSection />
         </section>
         <section className="mb-12">
           <Statistics></Statistics>
         </section>
-        <section className="mb-12">
-          <About></About>
+        <section id="about" className="mb-12">
+          <About ></About>
         </section>
 
-        <section className="mb-12">
+        <section  id="services" className="mb-12">
           <Services></Services>
         </section>
 
-        <section className="mb-12">
+        <section  id="portfolio" className="mb-12">
           <Portfolio />
         </section>
 
-        <section className="my-24">
+        <section  id="clients" className="my-24">
           <Clients></Clients>
+        </section>
+
+        <section id="contact">
+          <Contact></Contact>
         </section>
       </main>
     </>

@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Image, { StaticImageData } from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { HiLocationMarker } from "react-icons/hi";
 import P1I1 from "../assets/construction/tower-1.jpg";
 import P1I2 from "../assets/construction/tower-2.jpg";
 import P1I3 from "../assets/construction/tower-3.jpg";
@@ -12,11 +10,14 @@ import P4I1 from "../assets/construction/tower-6.jpg";
 import P5I1 from "../assets/construction/tower-7.jpg";
 import P1I5 from "../assets/construction/tower-9.jpg";
 import { RxCaretLeft } from "react-icons/rx";
-import { OutlinedBtn } from "./styled/Btn";
 import Link from "next/link";
-import { BsArrowLeft } from "react-icons/bs";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import {useEffect} from 'react';
 
 export default function Portfolio() {
+  gsap.registerPlugin(ScrollTrigger);
+
   const [activeProject, setActiveProject] = React.useState<Project | null>(
     null
   );
@@ -26,24 +27,36 @@ export default function Portfolio() {
   `;
 
   const HovrableCard = styled.div`
-  img{
-    transition: 500ms;
-    z-index: 1;
-  }
-  .overlay{
-    z-index: 2;
-    transition: 500ms;
-  }
-  &:hover{
-    img{
-      scale: 1.2;
+    img {
+      transition: 500ms;
+      z-index: 1;
     }
-    .overlay{
-      opacity: 0;
+    .overlay {
+      z-index: 2;
+      transition: 500ms;
     }
-  }
-  
-  `
+    &:hover {
+      img {
+        scale: 1.2;
+      }
+      .overlay {
+        opacity: 0;
+      }
+    }
+  `;
+
+  const animatePorjects = () => {
+    gsap.from(".portfolio-item", {
+      yPercent: (i,item,items)=>i%2 ===0 ?100:-100,
+      duration:1.2,
+      ease:'back.out(1.5)',
+      scrollTrigger:{
+        trigger:'.portfolio',
+        
+        toggleActions:'restart none restart none',
+      }
+    });
+  };
 
   type Project = {
     name: string;
@@ -102,14 +115,11 @@ export default function Portfolio() {
     },
   ];
 
-
-
-  React.useEffect(() => {
-    setActiveProject(projects[0]);
-  }, []);
-
+  useEffect(()=>{
+    animatePorjects()
+  },[])
   return (
-    <div className="relative min-w-[250px]">
+    <div className="portfolio overflow-hidden relative min-w-[250px]">
       <div className="container mx-auto max-w-screen-xl">
         <h2 className="text-primary text-3xl font-bold">أعمالنا</h2>
         <p className="text-2xl text-dark font-bold">
@@ -117,8 +127,8 @@ export default function Portfolio() {
         </p>
       </div>
       <BgGradiant className="md:p-10 mt-4">
-        <div className="flex md:justify-center items-center gap-8 p-4 overflow-x-auto ">
-          <HovrableCard className="relative min-w-[250px] cursor-pointer overflow-hidden rounded-2xl  ">
+        <div className="flex md:justify-center items-center gap-8 p-4 overflow-x-auto overflow-y-hidden ">
+          <HovrableCard className="portfolio-item relative min-w-[250px] cursor-pointer overflow-hidden rounded-2xl  ">
             <div className="overlay bg-black/50 rounded-xl absolute top-0 left-0 h-full w-full flex items-center justify-center">
               <h6 className="text-white text-3xl">المشروع الاول</h6>
             </div>
@@ -130,7 +140,7 @@ export default function Portfolio() {
               className=" w-[250px] h-[540px] rounded-2xl"
             ></Image>
           </HovrableCard>
-          <HovrableCard className="relative min-w-[250px] cursor-pointer overflow-hidden rounded-2xl">
+          <HovrableCard className="portfolio-item relative min-w-[250px] cursor-pointer overflow-hidden rounded-2xl">
             <div className="overlay bg-black/50 rounded-xl absolute top-0 left-0 h-full w-full flex items-center justify-center">
               <h6 className="text-white text-3xl">المشروع الثاني</h6>
             </div>
@@ -142,7 +152,7 @@ export default function Portfolio() {
               className=" w-[250px] h-[480px] rounded-xl object-cover"
             ></Image>
           </HovrableCard>
-          <HovrableCard className="relative min-w-[250px] cursor-pointer overflow-hidden rounded-2xl">
+          <HovrableCard className="portfolio-item relative min-w-[250px] cursor-pointer overflow-hidden rounded-2xl">
             <div className="overlay bg-black/50 rounded-xl absolute top-0 left-0 h-full w-full flex items-center justify-center">
               <h6 className="text-white text-3xl">المشروع الثالث</h6>
             </div>
@@ -155,7 +165,7 @@ export default function Portfolio() {
             ></Image>
           </HovrableCard>
 
-          <HovrableCard className="relative min-w-[250px] cursor-pointer overflow-hidden rounded-2xl">
+          <HovrableCard className="portfolio-item relative min-w-[250px] cursor-pointer overflow-hidden rounded-2xl">
             <div className="overlay bg-black/50 rounded-xl absolute top-0 left-0 h-full w-full flex items-center justify-center">
               <h6 className="text-white text-3xl">المشروع الرابع</h6>
             </div>
@@ -167,7 +177,7 @@ export default function Portfolio() {
               className=" w-[250px] h-[480px] rounded-xl object-cover"
             ></Image>
           </HovrableCard>
-          <HovrableCard className="relative min-w-[250px] cursor-pointer overflow-hidden rounded-2xl">
+          <HovrableCard className="portfolio-item relative min-w-[250px] cursor-pointer overflow-hidden rounded-2xl">
             <div className="overlay bg-black/50 rounded-xl absolute top-0 left-0 h-full w-full flex items-center justify-center">
               <h6 className="text-white text-3xl">المشروع الخامس</h6>
             </div>
@@ -182,7 +192,7 @@ export default function Portfolio() {
         </div>
         <div className="flex items-center justify-center mt-4">
           <Link
-            href={"/portfolio"}
+            href={"/"}
             className="text-white text-2xl flex gap-2 hover:text-primary transition"
           >
             رؤية المزيد

@@ -19,7 +19,7 @@ const links = [
     title: "خدماتنا",
   },
   {
-    href: "/#protfolio",
+    href: "/#portfolio",
     title: "معرض  الأعمال",
   },
 ];
@@ -133,7 +133,7 @@ const Navbar = ()=> {
             <li>
               <Link
                 className="p-2 border text-primary border-primary rounded "
-                href={"/contact"}
+                href={"/#contact"}
               >
                 تواصل معنا
               </Link>

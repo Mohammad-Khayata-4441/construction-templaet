@@ -8,7 +8,33 @@ import Machine from "../assets/construction/construction-2.jpg";
 import HavcCompleteSolution from "../assets/construction/HavcCompleteSolutions.jpg";
 import StreetWork from "../assets/construction/ConcreteRepair.jpg";
 import Planning from "../assets/construction/planning.jpg";
+import { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 export default function Services() {
+  gsap.registerPlugin(ScrollTrigger);
+  const animateServices = () => {
+    const services = document.querySelectorAll(".service-item");
+    services.forEach((serv) => {
+      if (serv instanceof HTMLElement && serv.dataset.delay)
+        gsap.from(serv, {
+          opacity: 0,
+          xPercent:-50,
+          duration: 1,
+          ease:"back.out(1.8)",
+          delay: (+serv.dataset.delay * 3) as any,
+          scrollTrigger: {
+            trigger: serv,
+            toggleActions: "restart reverse restart none",
+          },
+        });
+    });
+  };
+
+  useEffect(() => {
+    animateServices();
+  }, []);
+
   return (
     <div className="text-gray-600 body-font relative ">
       <svg
@@ -58,7 +84,10 @@ export default function Services() {
           </div>
         </div>
         <div className="grid grid-cols-12 gap-4 ">
-          <div className="col-span-12 sm:col-span-6 lg:col-span-3 p-4 relative">
+          <div
+            data-delay="0"
+            className="service-item col-span-12 sm:col-span-6 lg:col-span-3 p-4 relative"
+          >
             <div className="bg-white p-3 rounded-2xl border ">
               <Image
                 height={400}
@@ -75,7 +104,10 @@ export default function Services() {
               </h2>
             </div>
           </div>
-          <div className="col-span-12 sm:col-span-6 lg:col-span-3 p-4 relative">
+          <div
+            data-delay="0.05"
+            className="service-item col-span-12 sm:col-span-6 lg:col-span-3 p-4 relative"
+          >
             <div className="bg-white p-3 rounded-2xl border ">
               <Image
                 height={400}
@@ -92,7 +124,10 @@ export default function Services() {
               </h2>
             </div>
           </div>
-          <div className="col-span-12 sm:col-span-6 lg:col-span-3 p-4 relative">
+          <div
+            data-delay="0.1"
+            className="service-item col-span-12 sm:col-span-6 lg:col-span-3 p-4 relative"
+          >
             <div className="bg-white p-3 rounded-2xl border ">
               <Image
                 height={400}
@@ -109,7 +144,10 @@ export default function Services() {
               </h2>
             </div>
           </div>
-          <div className="col-span-12 sm:col-span-6 lg:col-span-3 p-4  relative">
+          <div
+            data-delay="0.15"
+            className="service-item col-span-12 sm:col-span-6 lg:col-span-3 p-4  relative"
+          >
             <div className="bg-white p-3 rounded-2xl border ">
               <Image
                 height={400}
@@ -126,7 +164,10 @@ export default function Services() {
               </h2>
             </div>
           </div>
-          <div className="col-span-12 sm:col-span-6 lg:col-span-3 p-4 relative">
+          <div
+            data-delay="0"
+            className="service-item col-span-12 sm:col-span-6 lg:col-span-3 p-4 relative"
+          >
             <div className="bg-white p-3 rounded-2xl border ">
               <Image
                 height={400}
@@ -143,7 +184,10 @@ export default function Services() {
               </h2>
             </div>
           </div>
-          <div className="col-span-12 sm:col-span-6 lg:col-span-3 p-4 relative">
+          <div
+            data-delay="0.05"
+            className="service-item col-span-12 sm:col-span-6 lg:col-span-3 p-4 relative"
+          >
             <div className="bg-white p-3 rounded-2xl border ">
               <Image
                 height={400}
@@ -160,7 +204,10 @@ export default function Services() {
               </h2>
             </div>
           </div>
-          <div className="col-span-12 sm:col-span-6 lg:col-span-3 p-4 relative">
+          <div
+            data-delay="0.1"
+            className="service-item col-span-12 sm:col-span-6 lg:col-span-3 p-4 relative"
+          >
             <div className="bg-white p-3 rounded-2xl border ">
               <Image
                 height={400}
@@ -177,7 +224,10 @@ export default function Services() {
               </h2>
             </div>
           </div>
-          <div className="col-span-12 sm:col-span-6 lg:col-span-3 p-4 relative">
+          <div
+            data-delay="0.15"
+            className="service-item col-span-12 sm:col-span-6 lg:col-span-3 p-4 relative"
+          >
             <div className="bg-white p-3 rounded-2xl border ">
               <Image
                 height={400}

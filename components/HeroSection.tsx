@@ -6,10 +6,13 @@ import Image from "next/image";
 import heroImage from "@/assets/construction/tower-4.jpg";
 import heroImage2 from "@/assets/construction/tower-3.jpg";
 import heroMobile from "@/assets/construction/header-13.jpg";
-import anime from "animejs";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import gsap, { Back, Power2 } from "gsap";
 import { GradiantBtn, OutlinedBtn } from "./styled/Btn";
 import { useEffect } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const Hero = styled.div`
   background: linear-gradient(128.12deg, #1e1c2a 11.92%, #0d0c13 71.99%);
   height: 100vh;
@@ -20,51 +23,80 @@ const Hero = styled.div`
 
 export default function HeroSection() {
   const animate = () => {
+
     if (typeof window !== undefined) {
-      gsap.from(".net", {
-        scale: 0,
-        ease:"back.out(1.5)",
-        duration: 2,
-        yoyo:true,
-        repeat:-1
-      })
+      gsap.from(["header li a", "header .brand"], {
+        opacity: 0,
+        duration: 0.5,
+      });
+
+      gsap.fromTo(
+        ".net",
+        {
+          scale: 0.5,
+          ease: "back.out(1.5)",
+          duration: 5,
+          repeat:-1,
+          yoyo: true,
+        },
+        {
+          scale: 1,
+          ease: "back.out(1.5)",
+          repeat:-1,
+          duration: 5,
+          yoyo: true,
+        }
+      );
       gsap.from(".img-1", {
-        y: window.innerHeight,
+        y: -300,
         duration: 1.5,
         ease: Power2.easeOut,
+        opacity:0,
+        
+        scrollTrigger: {
+          trigger: ".hero",
+          toggleActions:"restart none restart none"
+        },
       });
       gsap.from(".img-2", {
-        y: -window.innerHeight,
+        y: 300,
         duration: 1.5,
+        opacity:0,
         ease: Power2.easeOut,
+        scrollTrigger: {
+          trigger: ".hero",
+          toggleActions:"restart none restart none"
+
+        },
       });
-      const tl = gsap.timeline();
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".hero",
+          toggleActions:"restart none restart none"
+        },
+      });
 
       tl.from([".hero-text h3"], {
         x: window.innerWidth,
         duration: 1,
         stagger: 0.5,
         ease: Power2.easeOut,
-      }).from(".hero-text p", {
-        y: -50,
-        duration:0.8,
+      })
+        .from(".hero-text p", {
+          y: -50,
+          duration: 0.5,
+          opacity: 0,
+        })
+        .from(".hero-btns button", {
+          y: 100,
+          opacity: 0,
+          duration: 0.5,
+        })
+        
+      gsap.from(".dots circle", {
         opacity: 0,
-      }).from('.hero-btns button',{
-        y:100,
-        opacity:0,
-        duration:0.8
-
-      }).from(['header li a','header .brand'],{
-        opacity:0,
-        duration:0.5
-      })
-
-      gsap.from('.dots circle',{
-        opacity:0,
-        stagger:0.05,
-        yoyo:true,
-        repeat:-1
-      })
+        stagger: 0.05,
+      });
 
       // anime({
       //   targets: ".net path",
@@ -75,14 +107,11 @@ export default function HeroSection() {
     }
   };
 
- 
-
-
   useEffect(() => {
     animate();
   }, []);
   return (
-    <Hero className="relative z-[0]">
+    <Hero className="hero relative z-[0]">
       <div className="container max-w-screen-xl px-4 mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center ">
           <div className="hero-content flex flex-col">
@@ -137,7 +166,7 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-      <Dots  className="hidden h-24 dots md:block absolute bottom-0 right-5"></Dots>
+      <Dots className="hidden h-24 dots md:block absolute bottom-0 right-5"></Dots>
     </Hero>
   );
 }
