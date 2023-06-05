@@ -7,7 +7,7 @@ import { useOnClickOutside } from "usehooks-ts";
 import Logo from '../assets/svg/Logo.svg'
 const links = [
   {
-    href: "/",
+    href: "/#main",
     title: "الرئيسية",
   },
   {
@@ -121,22 +121,21 @@ const Navbar = ()=> {
           >
             {links.map((li) => (
               <li key={li.title}>
-                <NavLink
-                  activeClass="text-primary "
+                <a
                   className={"px-2 py-4  text-lg "}
                   href={li.href}
                 >
                   {li.title}
-                </NavLink>
+                </a>
               </li>
             ))}
             <li>
-              <Link
+              <a
                 className="p-2 border text-primary border-primary rounded "
                 href={"/#contact"}
               >
                 تواصل معنا
-              </Link>
+              </a>
             </li>
           </ul>
         </nav>
