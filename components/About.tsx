@@ -203,7 +203,7 @@ export default function About() {
       </div>
 
       <div className="mt-12 relative ">
-        <Circles className='absolute right-10 -z-10 -top-48'></Circles>
+        <Circles className='absolute hidden lg:block right-10 -z-10 -top-48'></Circles>
         <div className="container px-4 max-w-screen-xl mx-auto mb-4">
           <h4 className="text-xl md:text-2xl font-bold mb-2 text-center md:text-right ">
             لماذا يجب عليك <span className="text-primary">إختيارنا</span> نحن ؟

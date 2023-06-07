@@ -27,7 +27,7 @@ export default function Home() {
           <About ></About>
         </section>
 
-        <section  id="services" className="mb-12">
+        <section  id="services" className="mb-12 mt-24">
           <Services></Services>
         </section>
 

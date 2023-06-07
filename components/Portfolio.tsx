@@ -120,7 +120,7 @@ export default function Portfolio() {
   },[])
   return (
     <div className="portfolio overflow-hidden relative min-w-[250px]">
-      <div className="container mx-auto max-w-screen-xl">
+      <div className="container mx-auto max-w-screen-xl px-2">
         <h2 className="text-primary text-3xl font-bold">أعمالنا</h2>
         <p className="text-2xl text-dark font-bold">
           نستعرض لكم مجموعة بابرز اعمالنا في المنطقة
@@ -190,7 +190,7 @@ export default function Portfolio() {
             ></Image>
           </HovrableCard>
         </div>
-        <div className="flex items-center justify-center mt-4">
+        <div className="flex items-center justify-center mt-4 p-4">
           <Link
             href={"/"}
             className="text-white text-2xl flex gap-2 hover:text-primary transition"
